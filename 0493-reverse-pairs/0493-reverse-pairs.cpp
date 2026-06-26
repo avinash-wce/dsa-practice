@@ -5,13 +5,13 @@ public:
         int i = st, j = mid + 1;
         int RevCount = 0;
         
-        int r = mid + 1;
-        for (int l = st; l <= mid; l++) {
-            while (r <= end && (long long)nums[l] > 2LL * nums[r]) {
-                r++;
+        int l = st;
+        for (int r = mid+1; r <= end; r++) {
+            while (l <= mid && (long long)nums[l] <= 2LL * nums[r]) {
+                l++;
             }
-            RevCount += (r - (mid + 1));
-        }
+            RevCount += (mid - l + 1);
+        }   
         
         while ( i <= mid && j <= end) {
             if (nums[i] > nums[j]) {
