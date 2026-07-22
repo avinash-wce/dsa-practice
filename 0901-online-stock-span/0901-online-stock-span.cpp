@@ -1,17 +1,24 @@
 class StockSpanner {
-    stack<pair<int,int>> st;
+    // Stores pairs of (price) represented by indices
+    vector<int> prices;
+    stack<int> st; // Stores indices of prices in decreasing order
+
 public:
-    StockSpanner() {
-        
-    }
+    StockSpanner() {}
     
     int next(int price) {
-        int span = 1;
-        while(st.size() != 0 && st.top().first <= price){
-            span+=st.top().second;
+        prices.push_back(price);
+        int day = prices.size() - 1; // Current 0-based index
+        
+        // Pop indices where prices are <= current price
+        while (!st.empty() && prices[st.top()] <= price) {
             st.pop();
         }
-        st.push({price, span});
+        
+        // If stack is empty, all previous prices were <= current price
+        int span = st.empty() ? (day + 1) : (day - st.top());
+        
+        st.push(day);
         return span;
     }
 };
