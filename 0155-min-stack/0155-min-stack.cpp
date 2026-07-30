@@ -9,8 +9,7 @@ public:
         if (s.empty()){
             s.push({val, val});
         } else {
-            int minVal = min(s.top().second, val);
-            s.push({val, minVal});
+            s.push({val, min(s.top().second, val)});
         }
     }
     
