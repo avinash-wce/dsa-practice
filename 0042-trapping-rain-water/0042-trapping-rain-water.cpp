@@ -1,4 +1,4 @@
-/* TC = O(n), S
+/* TC = O(n), SC = O(n)
 class Solution {
 public:
     int trap(vector<int>& height) {
