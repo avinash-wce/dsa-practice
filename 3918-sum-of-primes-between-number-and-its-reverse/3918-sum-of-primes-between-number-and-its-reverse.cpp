@@ -13,7 +13,7 @@ public:
         for(int i = miny; i <= maxy; i++){
             if (i <= 1) continue;
             bool check = true;
-            for(int j = 2; j < i - 1; j++){
+            for(int j = 2; j*j <= i; j++){
                 if (i % j == 0){
                     check = false;
                 }
