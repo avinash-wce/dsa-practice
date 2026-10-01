@@ -6,16 +6,15 @@ public:
             if (s[i] == '(' || s[i] == '[' || s[i] == '{'){
                 ps.push(s[i]);
             } else {
-                if (ps.empty()) return false;
+                if (ps.size() == 0) return false;
                 if (s[i] == ')' && ps.top() != '('){
                     return false;
                 }else if (s[i] == ']' && ps.top() != '['){
                     return false;
                 }else if(s[i] == '}' && ps.top() != '{'){
                     return false;
-                }else {
-                    ps.pop();
                 }
+                ps.pop();
             }
         }
         return ps.size() == 0 ;
