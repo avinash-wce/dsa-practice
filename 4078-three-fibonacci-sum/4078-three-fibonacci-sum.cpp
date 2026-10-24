@@ -1,12 +1,12 @@
 class Solution {
 public:
     bool threeFibonacciSum(int n) {
-        vector<long long> fib;
-        fib.push_back(0);
-        fib.push_back(1);
+        long long first = 0;
+        long long second = 1;
         while(true){
-            long long next = fib[fib.size()-1] + fib[fib.size()-2];
-            fib.push_back(next);
+            long long next = first + second;
+            first = second;
+            second = next;
             if(next*2 > n){
                 return false;
             }
